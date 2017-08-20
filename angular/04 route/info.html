@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th width="70%">标题</th>
+        <th>日期</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="d in mydata | filter:column">
+        <td><a href="#/show/{{d.ac_id}}" ng-bind="d.ac_title"></a></td>
+        <td ng-bind="d.ac_date"></td>
+    </tr>
+    </tbody>
+</table>

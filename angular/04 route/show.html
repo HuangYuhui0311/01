@@ -1,0 +1,7 @@
+<div ng-repeat="v in datas">
+<div class="page-header text-center">
+    <h2 ng-bind="v.ac_title"></h2>
+    <p>作者：<span class="bg-info">admin</span>&nbsp;&nbsp;&nbsp;发布时间：<span class="bg-info" ng-bind="v.ac_date"></span></p>
+</div>
+<div class="content" ng-bind-html="v.ac_content | tsHtml"></div>
+</div>

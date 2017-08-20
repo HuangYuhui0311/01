@@ -1,0 +1,40 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th width="80%">标题</th>
+        <th>日期</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="d in mydata | myFliter:curPage ">
+        <td><a href="#/show/{{d.ac_id}}" ng-bind="d.ac_title"></a></td>
+        <td ng-bind="d.ac_date"></td>
+    </tr>
+    <tr height="66">
+        <td align="center">
+            <button ng-click="pageFirst()" ng-class="{'disabled':curPage==1}">首页</button>
+            <button ng-click="pagePrev()">上一页</button>
+            当前第<span>{{curPage}}</span>页
+            <button ng-click="pageNext()">下一页</button>
+            <button ng-click="pageLast()" ng-class="{'disabled':curPage==pages}">尾页</button>
+        </td>
+        <td>
+            <div class="pagination-nav">
+                <span>{{curPage}}</span>
+                <span class="page-separator">/</span>
+                <span>{{pages}}</span>
+                <span class="page-nav">
+              <span class="pre-page" ng-class="{'disabled':curPage==1}" ng-click="pagePrev()"></span>
+                    <!--<span class="pre-page disabled"></span>-->
+              <span class="nav-separator"></span>
+              <span class="next-page" ng-class="{'disabled':curPage==pages}" ng-click="pageNext()"></span>
+                    <!--<span class="next-page disabled"></span>-->
+            </span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">提示：分页不仅支持以上两组控件，还支持键盘左右键(← →)分页+数字(0~9)分页。</td>
+    </tr>
+    </tbody>
+</table>

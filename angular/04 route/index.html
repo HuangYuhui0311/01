@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="css/_self.css" type="text/css" rel="stylesheet">
+    <!-- [if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <style type="text/css">
+        .container{width:1000px; margin:0 auto;}
+        table{border-spacing:0;border-collapse:collapse}
+        table tr th {text-align: left; padding-bottom: 20px;}
+        table tr td {border-top: 1px solid #ddd; padding: 10px 0;}
+        .pagination-nav {
+            text-align: right;
+        }
+        .pagination-nav .page-nav {
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            margin-left: 6px;
+        }
+        .pagination-nav .page-nav .pre-page {
+            width: 0; height: 0;
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 15px;
+            margin-right: 13px;
+            border-right: 12px solid #686868;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        .pagination-nav .page-nav .nav-separator {
+            border-right: 1px solid #eeeeee;
+        }
+        .pagination-nav .page-nav .next-page {
+            width: 0; height: 0;
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 20px;
+            margin-right: 12px;
+            border-left: 12px solid #686868;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        .pagination-nav .page-nav .disabled {
+            cursor: inherit;
+            border-left-color: #e6e6e6;
+            border-right-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<div class="container" ng-controller="homeContr">
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">首页</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#/web">Web前端开发</a></li>
+                <li><a href="#/net">网络营销</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div ng-view></div>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+<script>
+    var app=angular.module("myApp",["ngRoute"]);
+
+    app.config(["$routeProvider",function($routeProvide){
+        $routeProvide
+            .when("/",{
+                templateUrl:"home.html"
+            }).when("/web",{
+                templateUrl:"info.html",
+                controller:"webContr"
+            }).when("/net",{
+                templateUrl:"info.html",
+                controller:"netContr"
+            }).when("/show/:id",{
+                templateUrl:"show.html",
+                controller:"showContr"
+            }).otherwise({
+                    redirectTo:"/"
+        });
+    }]);
+    app.controller("homeContr",function($scope,$http,$document){
+        $http.get("mydata.php?date="+new Date().getTime()).success(function(data){
+            $scope.mydata=data;
+            $scope.totalSize=$scope.mydata.length;
+            $scope.curPage=1;
+            $scope.pageSize=10;
+            $scope.pages=Math.ceil($scope.totalSize/$scope.pageSize);
+        });
+        $scope.pageFirst=function(){
+            $scope.curPage=1;
+        }
+        $scope.pageLast=function(){
+            $scope.curPage=$scope.pages;
+        }
+        $scope.pagePrev=function(){
+            $scope.curPage-=1;
+            if($scope.curPage<1){
+                $scope.curPage=1;
+            }
+        }
+        $scope.pageNext=function(){
+            $scope.curPage+=1;
+            if($scope.curPage>$scope.pages){
+                $scope.curPage=$scope.pages;
+            }
+        }
+        $document.bind("keydown",function(ev){
+            var keyCode=ev.which;
+            //console.log(keyCode);
+            if(keyCode==37){
+                $scope.pagePrev();
+            }else if(keyCode==39){
+                $scope.pageNext();
+            }
+            $scope.$apply();
+        })
+    });
+    app.controller("webContr",function($scope){
+        $scope.column=function(e){
+            return e.ac_column=="Web前端开发";
+        }
+    });
+
+    app.controller("netContr",function($scope){
+        $scope.column=function(e){
+            return e.ac_column=="网络营销";
+        }
+    });
+    app.controller("showContr",function($scope,$http,$routeParams,$sce){
+        var showId = $routeParams.id;
+        $http.get("myarticle.php?showId="+showId).success(function(data){
+            $scope.datas=data;
+        })
+    })
+    app.filter("tsHtml",function($sce){
+        return function(data){
+            return $sce.trustAsHtml(data);
+        }
+    });
+    app.filter("myFliter",function(){
+        return function(e,page){
+            var _out=[];
+            var pageSize=10;
+            var pages=Math.ceil(e.length/pageSize);
+            var start=(page-1)*pageSize;
+            for(var i=start;i<start+pageSize;i++){
+                if(i<e.length){
+                    _out.push(e[i]);
+                }else{
+                    break;
+                }
+            }
+            return _out;
+        }
+    })
+</script>
+</html>

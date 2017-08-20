@@ -1,0 +1,12 @@
+<div class="media" ng-repeat="d in datas | filter:column">
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object" src="{{d.ac_thum}}" alt="{{d.ac_title}}">
+        </a>
+    </div>
+    <div class="media-body">
+        <h3 class="media-heading" ng-bind="d.ac_title"></h3>
+        <p ng-bind="d.ac_describe"></p>
+        <p>发布时间：{{d.ac_date}}</p>
+    </div>
+</div>

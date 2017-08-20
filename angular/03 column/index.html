@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="css/_self.css" type="text/css" rel="stylesheet">
+    <!-- [if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<script type="text/ng-template" id="base">
+    <div class="media" ng-repeat="d in datas | filter:column">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="{{d.ac_thum}}" alt="{{d.ac_title}}">
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="media-heading" ng-bind="d.ac_title"></h3>
+            <p ng-bind="d.ac_describe"></p>
+            <p>发布时间：{{d.ac_date}}</p>
+        </div>
+    </div>
+</script>
+<div class="container" ng-controller="myContr">
+    <h2>Web前端开发</h2>
+    <div ng-controller="contr1" ng-include src="'base'"></div>
+    <!--<div ng-controller="contr1" ng-include="'dase.html'"></div>-->
+    <h2>网络营销</h2>
+    <div ng-controller="contr2" ng-include src="'base'"></div>
+    <!--<div ng-controller="contr2" ng-include="'dase.html'"></div>-->
+    <h2>UI设计</h2>
+    <div ng-controller="contr3" ng-include src="'base'"></div>
+    <!--<div ng-controller="contr3" ng-include="'dase.html'"></div>-->
+</div>
+
+</body>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller("myContr",function($scope,$http) {
+        $http.get("data.php?data="+new Date().getTime()).success(function (mydata) {
+            console.log(mydata)
+          $scope.datas = mydata;
+        });
+    });
+    app.controller("contr1",function($scope){
+        $scope.column=function(e){
+            return e.ac_column=="Web前端开发";
+        }
+    });
+    app.controller("contr2",function($scope){
+        $scope.column=function(e){
+            return e.ac_column=="网络营销";
+        }
+    });
+    app.controller("contr3",function($scope){
+        $scope.column=function(e){
+            return e.ac_column=="UI设计";
+        }
+    })
+</script>
+</html>
