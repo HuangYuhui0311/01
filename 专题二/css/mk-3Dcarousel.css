@@ -1,0 +1,84 @@
+.mk-carousel{
+    height:550px;
+    overflow:hidden;
+    position:relative;
+    z-index:999;
+    font-size:0;
+    text-align:left
+}
+.mk-carousel>div{
+    display:inline-block;
+    width:351px;
+    height:360px;
+    padding-top:55px;
+    background:url(../img/bg_off.png) no-repeat center center;
+    position:relative;
+    left:50%;
+    top:50%;
+    margin-top:-200px;
+    margin-bottom:100%;
+    cursor:pointer;
+    -moz-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+    -moz-transform:perspective(200px) rotateY(10deg) scale(0.8);
+    -ms-transform:perspective(200px) rotateY(10deg) scale(0.8);
+    -webkit-transform:perspective(200px) rotateY(10deg) scale(0.8);
+    transform:perspective(200px) rotateY(10deg) scale(0.8);
+}
+.mk-carousel>div.active{
+    width:351px;
+    height:330px;
+    padding-top:85px;
+    background:url(../img/bg_on.png) no-repeat center center;
+    z-index:2;
+     opacity:1;
+     -moz-transition:all 0.3s ease;
+     -o-transition:all 0.3s ease;
+     -webkit-transition:all 0.3s ease;
+     transition:all 0.3s ease;
+     -moz-transform:rotateY(0deg);
+     -ms-transform:rotateY(0deg);
+     -webkit-transform:rotateY(0deg);
+     transform:rotateY(0deg);
+ }
+.mk-carousel>div.div-left{
+    -moz-transform:perspective(200px) rotateY(-10deg) scale(0.8);
+    -ms-transform:perspective(200px) rotateY(-10deg) scale(0.8);
+    -webkit-transform:perspective(200px) rotateY(-10deg) scale(0.8);
+    transform:perspective(200px) rotateY(-10deg) scale(0.8);
+}
+.mk-nav-controls{
+    display:inline-block;
+    position:absolute;
+    z-index:999;
+    top:310px;
+    width:46px;
+    height:70px;
+}
+.span_prev{
+    left:-46px;
+}
+.span_next{
+    left:1000px;
+}
+.mk-nav-controls a {
+    display: inline-block;
+}
+.mk-nav-controls a{
+    text-decoration:none;
+    text-transform:uppercase;
+    color:#fff;
+    display:inline-block;
+    padding:5px;
+    line-height:1;
+    -moz-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+    transition:all 0.3s ease
+}
+/*.mk-nav-controls a:hover,.mk-carousel .mk-nav-controls a:focus,.mk-carousel .mk-nav-controls a:active{*/
+    /*background:#fff;*/
+    /*color:#333*/
+/*}*/

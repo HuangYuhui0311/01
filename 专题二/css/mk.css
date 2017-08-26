@@ -1,0 +1,14 @@
+.mk-carousel{ position:relative; margin-top:60px; height:494px; overflow:hidden; }
+#mkCarousel{ position:absolute; width:4000px; height:494px; }
+#mkCarousel>div { float:left; top:0; width:361px; height:355px; padding-top:60px; background:url(../img/bg_off.png) no-repeat left center; }
+#mkCarousel>div.left{ transform:perspective(300px) rotateY(-10deg) scale(0.85);  }
+#mkCarousel>div.right{ transform:perspective(300px) rotateY(10deg) scale(0.85); }
+#mkCarousel>div dt{ font-size:28px; line-height:72px; color:#5ba8ff; text-align:center; }
+#mkCarousel>div dd{ font-size:18px; line-height:36px; color:#fff; padding:16px 28px 0; }
+#mkCarousel>div.active{ width:361px; height:330px; padding-top:85px; background:url(../img/bg_on.png) no-repeat center center; transform:rotateY(0deg) scale(1);}
+#mkCarousel>div.active dt{ font-size:28px; line-height:72px; color:#c522ff; text-align:center; }
+#mkCarousel>div.active dd{ font-size:18px; line-height:36px; color:#fff; padding:16px 28px 0; }
+
+.bsnr>span{ position:absolute; top:280px; width:46px; height:70px; }
+.bsnr>span.span_prev{  left:-46px; background:url(../img/pre.png) no-repeat center center; }
+.bsnr>span.span_next{ left:1000px; background:url(../img/next.png) no-repeat center center; }
