@@ -1,0 +1,101 @@
+body{margin:0; font-family:"微软雅黑"; }
+a{ outline:none; text-decoration:none; }
+img{ vertical-align:middle;}
+ul,li,ol,dl,dt,dd,p,h1,h2,h3,h4,h5,h6{ padding:0; margin:0; }
+ul,ol,dl{ list-style:none; }
+.clear{ *zoom:1; }
+.clear:after{ content:""; display:block; clear:both;}
+
+/*-------------top----------------*/
+.top_f{ width:100%; height:50px; background:#0099f4; }
+.top{ width:1000px; height:50px; background:#0099f4; margin:0 auto;}
+.top .logo{ float:left; }
+.top .top_link{ float:left; }
+.top .tel{ float:right; padding-top:6px; color:#fff; font-size:18px; line-height:40px;}
+.top ul{ list-style:none; float:right; margin-top:10px; padding-left:25px;}
+.top li{ float:left; font:12px/40px "宋体"; color:#fff; padding-left:8px; }
+.top li a{ font:12px/40px "宋体"; color:#fff; }
+
+/*-------------banner-------------------*/
+.banner{ width:100%; height:759px; background:url(../img/banner01.png) no-repeat center top; }
+.ban{ width:1000px; margin:0 auto; }
+
+.ready{ width:100%; height:886px; background:#fff; }
+.rea{ width:1000px; height:886px; background:url(../img/bg01.png) no-repeat center top; margin:0 auto; }
+.rea h2{ font-size:48px; color:#333; text-align:center; line-height:160px; padding-top:58px; }
+.rea ol{ list-style:none; padding-top:12px; }
+.rea ol li{ height:150px; }
+.rea_l{ float:left;}
+.rea_r{ float:right;}
+.rea_li_title{  float:left; width:175px; padding-top:44px; font-size:18px; color:#63dacc; line-height:28px; text-align:center; }
+.rea_li_con{ float:right; padding-top:12px; font-size:14px; line-height:26px; }
+.rea_l .rea_li_con{ width:312px; padding-left:16px; }
+.rea_r .rea_li_con{ width:280px; padding-left:12px; }
+.rea_li_con strong{ font-size:16px; color:#52d0be; }
+
+.advantage{ width:100%; height:750px; background:url(../img/bg02b.png) no-repeat center top; }
+.adv{ position:relative; width:1000px; height:750px; background:url(../img/bg02.png) no-repeat center top; margin:0 auto;  }
+.adv h2{ font-size:48px; color:#fff; text-align:center; line-height:104px; padding-top:64px; }
+.adv_li p{ position: absolute; top: 304px; left: 375px; font-size: 20px; line-height: 34px; color: #fff; width: 222px; }
+.adv_li p b{ font-size:30px; color:#fff000; }
+.adv_li li{ font-size:18px; line-height:30px; color:#333; width:276px; }
+.adv_li strong{ font-size:20px; color:#3ae0a8; }
+.adv_li .li01{ position: absolute; top: 260px; left: 25px; }
+.adv_li .li02{ position: absolute; top: 262px; left: 695px; }
+.adv_li .li03{ position: absolute; top: 472px; left: 22px; }
+.adv_li .li04{ position: absolute; top: 472px; left: 698px; }
+.adv_li .li05{ position: absolute; top: 640px; left: 290px; width: 424px; }
+
+.write_exam{ width:100%; height:750px; background:url(../img/bg03b.png) no-repeat center top; }
+.w_exam{ position:relative; width:1000px; height:750px; background:url(../img/bg03.png) no-repeat center top; margin:0 auto; overflow:hidden; }
+.w_exam h2{ font-size:48px; color:#fff; text-align:center; line-height:104px; padding-top:64px; }
+.w_exam #series{ padding-top:40px; padding-left:14px; }
+.w_exam #series li{ float:left; width:176px; height:50px; border:1px solid #009ff5; border-radius:3px; font-size:18px; font-weight:bold; line-height:50px; text-align:center; color:#0097f4; margin-left:15px; cursor:pointer; }
+.w_exam #series li.on{ background:url(../img/li_bg.png) no-repeat center center; color:#fff; border:none; }
+
+.w_exam table{ width:1000px; border-collapse:collapse; height:416px; text-align:center;}
+.w_exam th{ font-size:18px; font-weight:normal; line-height:48px; color:#333; border:1px solid #ccc; border-top:none;}
+.w_exam td{ font-size:16px; color:#333; line-height:30px; text-align:center; border:1px solid #ccc; border-top:none; padding:14px 15px 8px; }
+.w_exam td.l{ text-align:left; padding:8px 15px;}
+.w_exam td a{ display:block; width:92px; height:38px; font-size:18px; line-height:38px; color:#fff; background:url(../img/a_bg.png) no-repeat center center; }
+#tabUL{ position:absolute; left:0; top:285px; width:520%; }
+#tabUL li{ float:left; }
+
+.reduction{ width:100%; height:853px; background:url(../img/bg04b.png) no-repeat center top; }
+.reduce{ width:1000px; height:853px; background:url(../img/bg04.png) no-repeat center top; margin:0 auto; }
+.reduce h2{ font-size:48px; color:#333; text-align:center; line-height:76px; padding-top:40px; }
+.reduce>p{ width:640px; height:60px; font-size:30px; font-weight:bold; line-height:60px; color:#fff; text-align:center; margin:0 auto 105px; }
+.reduce>p strong{ color:#fcff00; padding-left:26px; }
+.reduce h4{ height:60px; font-size:24px; line-height:60px; color:#fff; text-align:center; }
+.red_l h4{ margin-bottom:78px; }
+.red_r h4{ margin-bottom:72px; }
+.red_cou{ color:#333; }
+.reduce i{ font-size:18px; font-style:normal; }
+.red_l{ float:left; width:358px; padding:0 46px; }
+.red_r{ float:right; width:354px; padding:0 48px; }
+.red_l .red_cou{ padding-bottom:14px; }
+.red_r .red_cou{ padding-bottom:22px; }
+.red_l .red_cou_l{ float:left; padding-left:34px; font-size:18px; line-height:104px;}
+.red_l .red_cou_r{ float:right; height:104px; padding-right:38px; font-size:48px; line-height:104px; vertical-align:middle; }
+.red_r .red_cou_l{ float:left; padding-left:38px; font-size:18px; line-height:60px;}
+.red_r .red_cou_r{ float:right; height:60px; padding-right:30px; font-size:40px; line-height:60px;}
+
+.school{ width:100%; height:636px; background:#fff; }
+.sch{ width:1000px; height:636px; background:#fff; margin:0 auto; padding-top:62px; }
+.sch h2{ font-size:48px; color:#333; text-align:center; line-height:90px; height:90px; padding-top:18px; background:url(../img/h_bg.png) no-repeat center center; }
+.city{ padding-top:15px; }
+.city li{ float:left; width:102px; height:46px; border:1px solid #666; border-radius:3px; margin-left:8px; font-size:20px; line-height:46px; color:#333; text-align:center; cursor:pointer; }
+.city li.on{ width:104px; height:48px; background:url(../img/city_li_bg.png) no-repeat center center; color:#fff; font-weight:bold; border:none; }
+.address{ padding-top:30px; }
+.address ul{ display:none; }
+.address ul.active{ display:block; }
+.address li{ float:left; color:#333; width:500px; padding-bottom:30px; }
+.address dt{ font-size:16px; line-height:32px; font-weight:bold;}
+.address dd{ font-size:14px; line-height:30px; }
+
+.foot{ width:100%; height:110px; background:#508cee; }
+.f{ width:1000px; height:110px; background:#508cee; margin:0 auto; }
+.f p{ font:12px/24px "宋体";color:#fff; text-align:center; padding-top:32px; }
+
+
+
